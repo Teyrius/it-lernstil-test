@@ -30,7 +30,7 @@ with st.sidebar:
             st.error("Falsches Passwort")
             admin_mode = False
 
-if admin_mode and admin_password == "admin123":
+if admin_mode and admin_password == "Berserker":
     # ADMIN-BEREICH
     st.header("📊 Admin-Bereich - Alle Ergebnisse")
     
