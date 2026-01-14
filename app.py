@@ -58,6 +58,10 @@ if admin_mode and admin_password == "Berserker":
     st.stop()
 
 # NORMALER TEILNEHMER-MODUS
+st.info("""ℹ️ **Wichtig:** Dieser Test dient **nicht zur Bewertung**! Es geht nicht darum, alles richtig zu haben. 
+Wir möchten nur einschätzen, von welchem Grundwissen wir für die Schulung ausgehen können. 
+Bitte antworte ehrlich und **ohne Google oder KI-Hilfe** – nur so können wir die Schulung optimal auf dich abstimmen!""")
+
 st.write("Beantworte alle Fragen. Am Ende erhältst du eine vollständige Auswertung.")
 
 # ---------------------------------------------------------
@@ -93,7 +97,7 @@ st.header("🧠 IT‑Vorwissen")
 f1 = st.radio(
     "1. Welche Funktion erfüllt ein DHCP‑Server?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Er vergibt IP‑Adressen automatisch an Geräte.",
         "Er speichert alle Netzwerkdaten.",
         "Er verschlüsselt die Kommunikation.",
@@ -107,7 +111,7 @@ if f1 == "Er vergibt IP‑Adressen automatisch an Geräte.":
 f2 = st.radio(
     "2. Was beschreibt Active Directory?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Verwaltung von Benutzern, Gruppen und Ressourcen.",
         "Ein Cloud‑Speicher.",
         "Ein Virenschutzprogramm.",
@@ -121,7 +125,7 @@ if f2 == "Verwaltung von Benutzern, Gruppen und Ressourcen.":
 f3 = st.radio(
     "3. Wofür steht Port 443?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "HTTPS‑verschlüsselter Webverkehr.",
         "DNS‑Anfragen.",
         "Remote Desktop.",
@@ -135,7 +139,7 @@ if f3 == "HTTPS‑verschlüsselter Webverkehr.":
 f4 = st.radio(
     "4. Wofür wird ein DNS‑Server benötigt?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Er übersetzt Domainnamen in IP‑Adressen.",
         "Er speichert Passwörter.",
         "Er überwacht den Netzwerkverkehr.",
@@ -149,7 +153,7 @@ if f4 == "Er übersetzt Domainnamen in IP‑Adressen.":
 f5 = st.radio(
     "5. Welche Aufgabe hat ein Switch?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Er verbindet Geräte innerhalb eines LANs.",
         "Er stellt Internetzugang bereit.",
         "Er speichert Dateien zentral.",
@@ -163,7 +167,7 @@ if f5 == "Er verbindet Geräte innerhalb eines LANs.":
 f6 = st.radio(
     "6. Wofür steht HTTPS?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Verschlüsselter Webverkehr.",
         "Unverschlüsselter Webverkehr.",
         "Ein Backup‑Protokoll.",
@@ -177,7 +181,7 @@ if f6 == "Verschlüsselter Webverkehr.":
 f7 = st.radio(
     "7. Was macht eine Firewall?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Sie filtert Netzwerkverkehr.",
         "Sie speichert Daten.",
         "Sie vergibt IP‑Adressen.",
@@ -191,7 +195,7 @@ if f7 == "Sie filtert Netzwerkverkehr.":
 f8 = st.radio(
     "8. Was ist ein Vorteil der Virtualisierung?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Mehrere Betriebssysteme auf einem Host.",
         "Sie verhindert alle Cyberangriffe.",
         "Sie macht Computer automatisch schneller.",
@@ -204,7 +208,7 @@ if f8 == "Mehrere Betriebssysteme auf einem Host.":
 f9 = st.radio(
     "9. Was ist ein Betriebssystem?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Eine Software, die Hardware verwaltet und Programme ausführt.",
         "Ein Programm zur Bildbearbeitung.",
         "Ein Gerät zur Netzwerküberwachung.",
@@ -217,7 +221,7 @@ if f9 == "Eine Software, die Hardware verwaltet und Programme ausführt.":
 f10 = st.radio(
     "10. Was ist eine SSD?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Ein schneller, nicht‑mechanischer Datenspeicher.",
         "Ein Prozessor.",
         "Ein Netzwerkkabel.",
@@ -230,7 +234,7 @@ if f10 == "Ein schneller, nicht‑mechanischer Datenspeicher.":
 f11 = st.radio(
     "11. Wofür steht CPU?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Central Processing Unit.",
         "Computer Power Unit.",
         "Central Program Utility.",
@@ -243,7 +247,7 @@ if f11 == "Central Processing Unit.":
 f12 = st.radio(
     "12. Was macht ein Proxy‑Server?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Er vermittelt Anfragen zwischen Client und Internet.",
         "Er ersetzt den Router.",
         "Er speichert alle Dateien.",
@@ -256,7 +260,7 @@ if f12 == "Er vermittelt Anfragen zwischen Client und Internet.":
 f13 = st.radio(
     "13. Was ist ein Backup?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Eine Sicherungskopie wichtiger Daten.",
         "Ein Netzwerkprotokoll.",
         "Ein Virenschutz.",
@@ -269,7 +273,7 @@ if f13 == "Eine Sicherungskopie wichtiger Daten.":
 f14 = st.radio(
     "14. Was ist ein Router?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Ein Gerät, das Netzwerke verbindet.",
         "Ein Gerät zur Datenspeicherung.",
         "Ein Gerät zur Bildbearbeitung.",
@@ -282,7 +286,7 @@ if f14 == "Ein Gerät, das Netzwerke verbindet.":
 f15 = st.radio(
     "15. Was ist ein Patch?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Ein Update zur Fehlerbehebung.",
         "Ein Backup.",
         "Ein Hardware‑Upgrade.",
@@ -295,7 +299,7 @@ if f15 == "Ein Update zur Fehlerbehebung.":
 f16 = st.radio(
     "16. Was ist ein VPN?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Ein verschlüsselter Tunnel für sichere Verbindungen.",
         "Ein WLAN‑Standard.",
         "Ein Backup‑System.",
@@ -308,7 +312,7 @@ if f16 == "Ein verschlüsselter Tunnel für sichere Verbindungen.":
 f17 = st.radio(
     "17. Was ist RAM?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Ein schneller Arbeitsspeicher für laufende Prozesse.",
         "Ein Datenspeicher für Backups.",
         "Ein Netzwerkprotokoll.",
@@ -321,7 +325,7 @@ if f17 == "Ein schneller Arbeitsspeicher für laufende Prozesse.":
 f18 = st.radio(
     "18. Was ist ein Hypervisor?",
     [
-        "Bitte auswählen...",
+        "Weiß ich nicht",
         "Eine Software, die virtuelle Maschinen verwaltet.",
         "Ein Router.",
         "Ein Backup‑System.",
@@ -336,12 +340,15 @@ if f18 == "Eine Software, die virtuelle Maschinen verwaltet.":
 # LERNSTIL‑TEST
 # ---------------------------------------------------------
 
+st.markdown("---")
+st.info("✨ **Jetzt kommen wir vom fachlichen Teil zur Lernstil-Analyse!** Beantworte die folgenden Fragen spontan aus dem Bauch heraus, ohne lange nachzudenken.")
 st.header("🎨 Lernstil‑Analyse")
 
 # Frage 1
 ls1 = st.radio(
     "1. Wie gehst du an neue Themen heran?",
     [
+        "Bitte auswählen...",
         "Ich probiere Dinge direkt aus.",
         "Ich lese zuerst nach.",
         "Ich schaue Videos oder Erklärungen.",
@@ -354,12 +361,14 @@ mapping1 = {
     "Ich schaue Videos oder Erklärungen.": "visuell",
     "Ich lasse es mir erklären.": "sozial"
 }
-lernstil_punkte[mapping1[ls1]] += 1
+if ls1 != "Bitte auswählen...":
+    lernstil_punkte[mapping1[ls1]] += 1
 
 # Frage 2
 ls2 = st.radio(
     "2. Was motiviert dich beim Lernen?",
     [
+        "Bitte auswählen...",
         "Klare Ziele und Struktur.",
         "Eigene Neugier.",
         "Teamarbeit.",
@@ -372,12 +381,14 @@ mapping2 = {
     "Teamarbeit.": "sozial",
     "Druck oder Deadlines.": "strukturiert"
 }
-lernstil_punkte[mapping2[ls2]] += 1
+if ls2 != "Bitte auswählen...":
+    lernstil_punkte[mapping2[ls2]] += 1
 
 # Frage 3
 ls3 = st.radio(
     "3. Wie gehst du mit schwierigen Aufgaben um?",
     [
+        "Bitte auswählen...",
         "Ich zerlege sie in Schritte.",
         "Ich probiere verschiedene Wege.",
         "Ich suche Praxisbeispiele.",
@@ -390,7 +401,8 @@ mapping3 = {
     "Ich suche Praxisbeispiele.": "praktisch",
     "Ich bespreche es mit anderen.": "sozial"
 }
-lernstil_punkte[mapping3[ls3]] += 1
+if ls3 != "Bitte auswählen...":
+    lernstil_punkte[mapping3[ls3]] += 1
 
 ls4 = st.radio(
     "4. Wie behältst du Informationen am besten?",
