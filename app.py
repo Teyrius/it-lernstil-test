@@ -538,62 +538,453 @@ if ls9 != "Bitte auswählen...":
 
 import matplotlib.pyplot as plt
 
+# =========================================================
+# PROFESSIONELLE TEXTBAUSTEINE FÜR AUSWERTUNGEN
+# =========================================================
+
+def get_it_level_text(prozent, punkte, gesamt):
+    """Generiert professionelle IT-Auswertung basierend auf Punktzahl"""
+    
+    if prozent >= 90:
+        level = "Experte"
+        farbe = "success"
+        beschreibung = f"""
+        **Glückwunsch!** Mit {punkte} von {gesamt} Punkten ({prozent}%) zeigst du ein **ausgezeichnetes IT-Grundwissen**. 
+        
+        Du verfügst über ein fundiertes Verständnis von Netzwerkinfrastrukturen, Serverdiensten und 
+        IT-Sicherheitskonzepten. Begriffe wie DHCP, DNS, Active Directory und Virtualisierung sind dir 
+        vertraut und du kennst deren praktische Anwendung.
+        
+        **Deine Stärken:**
+        - Sehr gutes Verständnis von Netzwerkprotokollen und -diensten
+        - Fundiertes Wissen über Serverinfrastruktur und Verwaltung
+        - Ausgeprägtes Bewusstsein für IT-Sicherheit
+        - Solides Hardwareverständnis
+        
+        **Empfehlung für die Schulung:**
+        Du bist optimal vorbereitet und kannst direkt mit fortgeschrittenen Themen starten. Die Schulung 
+        wird für dich vor allem eine Vertiefung und praktische Anwendung sein. Du kannst als Multiplikator 
+        für andere Teilnehmende fungieren und von komplexeren Szenarien profitieren.
+        """
+    elif prozent >= 75:
+        level = "Fortgeschritten Plus"
+        farbe = "success"
+        beschreibung = f"""
+        **Sehr gut!** Mit {punkte} von {gesamt} Punkten ({prozent}%) verfügst du über **solides IT-Grundwissen**.
+        
+        Du hast ein gutes Verständnis für die wichtigsten IT-Konzepte und kannst mit vielen Fachbegriffen 
+        bereits etwas anfangen. Dein Wissen bildet eine hervorragende Grundlage für die kommende Schulung.
+        
+        **Deine Stärken:**
+        - Gutes Verständnis grundlegender Netzwerkkonzepte
+        - Solide Kenntnisse über gängige IT-Infrastruktur
+        - Grundlegendes Sicherheitsbewusstsein vorhanden
+        
+        **Entwicklungspotenzial:**
+        - Vertiefung einzelner Spezialthemen (z.B. Virtualisierung, Cloud-Services)
+        - Praktische Anwendung des theoretischen Wissens
+        - Erweiterte Sicherheitskonzepte
+        
+        **Empfehlung für die Schulung:**
+        Du bist gut vorbereitet! In der Schulung können wir auf deinem Wissen aufbauen und direkt in die 
+        praktische Anwendung einsteigen. Kleine Wissenslücken schließen wir gemeinsam.
+        """
+    elif prozent >= 60:
+        level = "Fortgeschritten"
+        farbe = "info"
+        beschreibung = f"""
+        **Gut gemacht!** Mit {punkte} von {gesamt} Punkten ({prozent}%) zeigst du **ordentliches IT-Basiswissen**.
+        
+        Du verfügst über grundlegende IT-Kenntnisse und bist mit einigen wichtigen Konzepten bereits vertraut. 
+        Das ist eine gute Ausgangsbasis, auf der wir in der Schulung aufbauen können.
+        
+        **Deine Stärken:**
+        - Grundverständnis wichtiger IT-Konzepte vorhanden
+        - Erste Erfahrungen mit Netzwerk- und Serverumgebungen
+        - Motivation zur Weiterentwicklung erkennbar
+        
+        **Entwicklungsbereiche:**
+        - Vertiefung des Netzwerkverständnisses (Protokolle, Dienste)
+        - Erweiterte Kenntnisse über Serverinfrastruktur
+        - Stärkung des IT-Sicherheitsbewusstseins
+        - Praktische Anwendung theoretischer Konzepte
+        
+        **Empfehlung für die Schulung:**
+        Du bringst eine solide Basis mit! Wir werden gemeinsam deine Kenntnisse systematisch erweitern und 
+        durch viele praktische Übungen vertiefen. Konzentriere dich besonders auf die Vernetzung der einzelnen 
+        Themen und deren praktische Anwendung.
+        """
+    elif prozent >= 45:
+        level = "Basis Plus"
+        farbe = "info"
+        beschreibung = f"""
+        Mit {punkte} von {gesamt} Punkten ({prozent}%) verfügst du über **grundlegende IT-Kenntnisse**.
+        
+        Du hast bereits erste Berührungspunkte mit IT-Themen gehabt und kennst einige Grundkonzepte. 
+        Das ist ein guter Anfang! In der Schulung werden wir diese Basis systematisch ausbauen.
+        
+        **Deine bisherigen Kenntnisse:**
+        - Erste Grundkenntnisse in IT-Bereichen vorhanden
+        - Einige Fachbegriffe sind bereits bekannt
+        - Interesse an IT-Themen ist erkennbar
+        
+        **Lernfelder für die Schulung:**
+        - Systematischer Aufbau von Netzwerkgrundlagen
+        - Verständnis für Serverinfrastruktur und -dienste
+        - IT-Sicherheitskonzepte und Best Practices
+        - Hardware-Komponenten und deren Zusammenspiel
+        - Praktische Übungen zur Festigung
+        
+        **Empfehlung für die Schulung:**
+        Keine Sorge – die Schulung ist genau für deinen Kenntnisstand konzipiert! Wir starten mit den 
+        Grundlagen und bauen systematisch darauf auf. Stelle aktiv Fragen und nutze die praktischen Übungen, 
+        um dein Verständnis zu vertiefen. Tipp: Bereite dich vor, indem du dich mit grundlegenden Begriffen 
+        wie IP-Adresse, DNS und Firewall vertraut machst.
+        """
+    elif prozent >= 30:
+        level = "Einsteiger Plus"
+        farbe = "warning"
+        beschreibung = f"""
+        Mit {punkte} von {gesamt} Punkten ({prozent}%) startest du mit **grundlegenden Einstiegskenntnissen**.
+        
+        Viele IT-Konzepte sind dir noch neu – das ist völlig in Ordnung! Die Schulung ist darauf ausgelegt, 
+        auch ohne große Vorkenntnisse den Einstieg zu ermöglichen.
+        
+        **Dein aktueller Stand:**
+        - Einzelne IT-Begriffe sind bekannt
+        - Alltagserfahrung mit Computern und Internet vorhanden
+        - Bereitschaft, Neues zu lernen
+        
+        **Deine Lernziele für die Schulung:**
+        - Grundverständnis für Netzwerke entwickeln (Was ist eine IP-Adresse? Wie funktioniert das Internet?)
+        - Wichtige Serverdienste kennenlernen (DNS, DHCP, Active Directory)
+        - IT-Sicherheit verstehen (Firewall, HTTPS, sichere Passwörter)
+        - Hardware-Grundlagen erfassen (CPU, RAM, Speicher)
+        - Praktische Kompetenzen durch Übungen aufbauen
+        
+        **Empfehlung für die Schulung:**
+        Du erhältst in der Schulung eine umfassende Einführung in alle relevanten Themen. Plane etwas mehr 
+        Zeit für Vor- und Nachbereitung ein. Nutze zusätzliche Lernmaterialien und scheue dich nicht, Fragen 
+        zu stellen – es gibt keine dummen Fragen! 
+        
+        **Tipp:** Schaue dir vor Schulungsbeginn YouTube-Videos zu Grundthemen an (z.B. "Was ist eine IP-Adresse?", 
+        "Wie funktioniert das Internet?") – das erleichtert dir den Einstieg erheblich.
+        """
+    else:  # < 30%
+        level = "Einsteiger"
+        farbe = "warning"
+        beschreibung = f"""
+        Mit {punkte} von {gesamt} Punkten ({prozent}%) beginnst du als **IT-Einsteiger**.
+        
+        Die IT-Welt ist für dich größtenteils Neuland – aber genau deshalb bist du hier! Jeder Experte hat 
+        einmal als Einsteiger begonnen. Die Schulung wird dich Schritt für Schritt an die Themen heranführen.
+        
+        **Deine Ausgangssituation:**
+        - IT-Fachbegriffe sind weitgehend neu
+        - Bisher wenig Berührung mit technischen IT-Themen
+        - Motivation, die IT-Welt kennenzulernen
+        
+        **Das wirst du in der Schulung lernen:**
+        - IT-Grundlagen von Grund auf verstehen
+        - Netzwerkkonzepte einfach erklärt bekommen
+        - Praktische Übungen mit intensiver Betreuung
+        - Serverdienste und deren Bedeutung kennenlernen
+        - IT-Sicherheit im Alltag anwenden können
+        
+        **Wichtige Empfehlungen:**
+        1. **Vorbereitung ist alles:** Nutze die Zeit vor der Schulung, um dich mit Grundbegriffen vertraut zu machen
+        2. **Zusätzliche Ressourcen:** Schaue dir Einführungsvideos auf YouTube an (z.B. "IT für Anfänger")
+        3. **Fragen stellen:** Es gibt keine dummen Fragen – nur wer fragt, lernt!
+        4. **Praktisch üben:** Nutze jede Gelegenheit für Hands-on-Erfahrungen
+        5. **Zeit einplanen:** Rechne mit etwas mehr Lern- und Übungszeit
+        6. **Lernpartner suchen:** Tausche dich mit anderen Teilnehmenden aus
+        
+        **Unser Versprechen:** Die Schulung ist so konzipiert, dass auch Einsteiger alle Inhalte verstehen 
+        können. Du erhältst bei Bedarf zusätzliche Unterstützung und Übungsmaterial. Mit Engagement und 
+        Durchhaltevermögen wirst du am Ende einen großen Sprung gemacht haben!
+        """
+    
+    return level, farbe, beschreibung
+
+
+def get_lernstil_text(dominant, zweit, punkte_dict):
+    """Generiert professionelle Lernstil-Auswertung"""
+    
+    # Detaillierte Beschreibungen für jeden Lernstil
+    lernstil_beschreibungen = {
+        "praktisch": {
+            "titel": "🔧 Praktisch-Haptischer Lerntyp",
+            "profil": """
+            Du bist ein **praktisch orientierter Lerner** – Learning by Doing ist dein Motto! 
+            Du verstehst Konzepte am besten, wenn du sie selbst ausprobieren und anfassen kannst.
+            """,
+            "staerken": [
+                "Lernt besonders effektiv durch praktische Übungen und Experimente",
+                "Behält Inhalte durch eigenes Ausprobieren am besten",
+                "Liebt Hands-on-Labs und direkte Anwendung",
+                "Versteht komplexe Zusammenhänge durch praktisches Tun",
+                "Motiviert durch sichtbare Erfolgserlebnisse"
+            ],
+            "lernmethoden": [
+                "**Labor-Übungen:** Nutze jede Gelegenheit für praktische Übungen",
+                "**Trial and Error:** Probiere Dinge aus, auch wenn du noch nicht alles verstehst",
+                "**Eigene Projekte:** Setze Gelerntes sofort in eigenen kleinen Projekten um",
+                "**Simulationen:** Nutze virtuelle Umgebungen zum Experimentieren",
+                "**Hands-on-Sessions:** Bevorzuge Schulungen mit hohem Praxisanteil"
+            ],
+            "tipps": [
+                "Fordere praktische Übungen ein – dein Lernerfolg steht und fällt damit",
+                "Richte dir eine Testumgebung ein, wo du gefahrlos experimentieren kannst",
+                "Dokumentiere deine praktischen Erfahrungen als Lerntagebuch",
+                "Suche nach YouTube-Tutorials, die zum Mitmachen anregen"
+            ]
+        },
+        "analytisch": {
+            "titel": "🧠 Analytisch-Logischer Lerntyp",
+            "profil": """
+            Du bist ein **analytischer Denker** – du willst verstehen, WARUM etwas funktioniert, 
+            nicht nur WIE. Zusammenhänge und Hintergrundwissen sind dir wichtig.
+            """,
+            "staerken": [
+                "Versteht komplexe Konzepte durch logische Analyse",
+                "Erfasst Zusammenhänge und Systematiken besonders gut",
+                "Lernt gerne durch Erklärungen und Hintergrundwissen",
+                "Kann Gelerntes gut strukturieren und kategorisieren",
+                "Hinterfragt kritisch und will Dinge tiefgehend verstehen"
+            ],
+            "lernmethoden": [
+                "**Konzepte verstehen:** Vertiefe dich in theoretische Grundlagen",
+                "**Mind Maps:** Erstelle Strukturdiagramme und Zusammenhangskarten",
+                "**Systematische Notizen:** Schreibe ausführliche, strukturierte Mitschriften",
+                "**Fachbücher:** Nutze Lehrbücher und technische Dokumentationen",
+                "**Analyse-Sessions:** Nimm dir Zeit, Konzepte zu durchdenken und zu hinterfragen"
+            ],
+            "tipps": [
+                "Fordere Erklärungen für das 'Warum' hinter den Konzepten",
+                "Erstelle eigene Zusammenfassungen und Konzeptdiagramme",
+                "Suche nach wissenschaftlichen Artikeln und technischen White Papers",
+                "Plane Denkzeit ein – Reflexion ist für dich essentiell"
+            ]
+        },
+        "visuell": {
+            "titel": "👁️ Visuell-Grafischer Lerntyp",
+            "profil": """
+            Du bist ein **visueller Lerner** – ein Bild sagt mehr als tausend Worte! 
+            Du merkst dir Inhalte am besten über Bilder, Diagramme und grafische Darstellungen.
+            """,
+            "staerken": [
+                "Verarbeitet Informationen besonders gut über visuelle Kanäle",
+                "Behält Diagramme, Grafiken und Bilder ausgezeichnet",
+                "Kann komplexe Zusammenhänge durch Visualisierung erfassen",
+                "Profitiert stark von Farbcodierung und grafischer Strukturierung",
+                "Erstellt gerne eigene Skizzen und visuelle Notizen"
+            ],
+            "lernmethoden": [
+                "**Diagramme zeichnen:** Erstelle eigene Netzwerkdiagramme und Infografiken",
+                "**Video-Tutorials:** Nutze YouTube und Videoplattformen als Hauptlernquelle",
+                "**Mind Maps:** Arbeite mit visuellen Strukturierungstechniken",
+                "**Farbcodierung:** Nutze Farben zum Kategorisieren und Merken",
+                "**Screenshots:** Dokumentiere Arbeitsschritte visuell"
+            ],
+            "tipps": [
+                "Zeichne Netzwerkstrukturen und IT-Architekturen selbst auf",
+                "Nutze Tools wie draw.io oder Lucidchart für Diagramme",
+                "Arbeite mit Post-its und visuellen Kanban-Boards",
+                "Erstelle Infografiken zu komplexen Themen"
+            ]
+        },
+        "sozial": {
+            "titel": "👥 Sozial-Kommunikativer Lerntyp",
+            "profil": """
+            Du bist ein **sozialer Lerner** – der Austausch mit anderen ist dein Lernturbo! 
+            Durch Diskussionen, Erklären und gemeinsames Lernen festigst du dein Wissen.
+            """,
+            "staerken": [
+                "Lernt besonders effektiv im Austausch mit anderen",
+                "Versteht Konzepte gut durch Diskussionen und Erklären",
+                "Profitiert stark von Gruppenarbeit und Teamlearning",
+                "Kann andere motivieren und mitreißen",
+                "Lernt durch Lehren – erklärt gerne anderen"
+            ],
+            "lernmethoden": [
+                "**Lerngruppen:** Schließe dich mit anderen Teilnehmenden zusammen",
+                "**Peer-Teaching:** Erkläre anderen, was du gelernt hast",
+                "**Diskussionsforen:** Nutze Online-Communities und Foren aktiv",
+                "**Pair Programming:** Arbeite in der IT mit einem Partner zusammen",
+                "**Study Buddies:** Suche dir einen festen Lernpartner"
+            ],
+            "tipps": [
+                "Gründe eine Lerngruppe oder tritt einer bei",
+                "Nutze Discord, Slack oder Teams für kontinuierlichen Austausch",
+                "Erkläre Konzepte anderen – dadurch festigst du dein eigenes Wissen",
+                "Suche aktiv das Gespräch mit Trainern und erfahrenen IT-lern"
+            ]
+        },
+        "strukturiert": {
+            "titel": "📋 Strukturiert-Systematischer Lerntyp",
+            "profil": """
+            Du bist ein **strukturierter Lerner** – klare Pläne, Schritt-für-Schritt-Anleitungen 
+            und systematischer Aufbau sind dir wichtig. Du liebst Ordnung und Übersichtlichkeit.
+            """,
+            "staerken": [
+                "Lernt am besten mit klaren Lernplänen und Zielvorgaben",
+                "Profitiert von strukturierten Schritt-für-Schritt-Anleitungen",
+                "Kann gut nach Checklisten und Prozessen arbeiten",
+                "Behält strukturierte Inhalte besonders gut",
+                "Organisiert Lernmaterial systematisch und übersichtlich"
+            ],
+            "lernmethoden": [
+                "**Lernpläne erstellen:** Plane deine Lerneinheiten detailliert vor",
+                "**Checklisten:** Arbeite mit To-Do-Listen und Fortschrittsmarkern",
+                "**Strukturierte Notizen:** Nutze Gliederungen und Nummerierungen",
+                "**Standard Operating Procedures:** Erstelle SOPs für wiederkehrende Aufgaben",
+                "**Zeitmanagement:** Plane feste Lernzeiten mit klaren Zielen ein"
+            ],
+            "tipps": [
+                "Erstelle dir einen detaillierten Schulungs- und Lernplan",
+                "Nutze Tools wie Notion, OneNote oder Trello zur Organisation",
+                "Arbeite Kapitel für Kapitel systematisch durch",
+                "Definiere klare Meilensteine und Erfolgskriterien"
+            ]
+        },
+        "flexibel": {
+            "titel": "🎨 Flexibel-Kreativer Lerntyp",
+            "profil": """
+            Du bist ein **flexibler Lerner** – du liebst Abwechslung und lernst gut in offenen, 
+            kreativen Situationen. Spontanität und verschiedene Herangehensweisen motivieren dich.
+            """,
+            "staerken": [
+                "Lernt gut in offenen, explorativen Situationen",
+                "Profitiert von Abwechslung und verschiedenen Lernmethoden",
+                "Kann sich schnell auf neue Situationen einstellen",
+                "Findet kreative Lösungswege",
+                "Motiviert durch Vielfalt und Spontanität"
+            ],
+            "lernmethoden": [
+                "**Methodenmix:** Kombiniere verschiedene Lernformen (Videos, Texte, Übungen)",
+                "**Freies Experimentieren:** Erlaube dir, eigene Wege zu gehen",
+                "**Projekbasiertes Lernen:** Arbeite an eigenen, freien Projekten",
+                "**Gamification:** Nutze spielerische Lernansätze",
+                "**Spontane Sessions:** Lerne dann, wenn die Motivation da ist"
+            ],
+            "tipps": [
+                "Variiere deine Lernmethoden regelmäßig, um Motivation aufrechtzuerhalten",
+                "Setze dir flexible Lernziele, die Raum für Kreativität lassen",
+                "Nutze verschiedene Plattformen und Ressourcen parallel",
+                "Erlaube dir, auch mal 'Umwege' zu gehen – sie führen oft zu tieferem Verständnis"
+            ]
+        }
+    }
+    
+    dominant_info = lernstil_beschreibungen[dominant]
+    zweit_info = lernstil_beschreibungen[zweit]
+    
+    # Kombinationsanalyse
+    kombination_text = f"""
+    ### 🔄 Deine Lernstil-Kombination: {dominant.capitalize()} + {zweit.capitalize()}
+    
+    Deine Kombination aus **{dominant}** (dominant) und **{zweit}** (sekundär) ist besonders interessant:
+    
+    Du lernst hauptsächlich {dominant}, nutzt aber auch Elemente des {zweit}en Lernens. 
+    Diese Kombination macht dich vielseitig und anpassungsfähig. Nutze beide Stile aktiv, 
+    um deinen Lernerfolg zu maximieren!
+    
+    **Empfohlene Lernstrategie:** 
+    Starte mit {dominant}en Methoden (hier fühlst du dich am wohlsten), ergänze dann mit 
+    {zweit}en Elementen für zusätzliche Perspektiven und Vertiefung.
+    """
+    
+    return dominant_info, zweit_info, kombination_text
+
+
 if st.button("📊 Gesamtauswertung anzeigen"):
-    st.header("📈 Deine Ergebnisse")
+    st.header("📈 Deine Professionelle Auswertung")
 
     # -----------------------------------------------------
-    # IT‑AUSWERTUNG
+    # IT‑AUSWERTUNG MIT TEXTBAUSTEINEN
     # -----------------------------------------------------
-    st.subheader("🧠 IT‑Vorwissen – Analyse")
+    st.subheader("🧠 IT‑Vorwissen – Detaillierte Analyse")
 
     gesamt_it = 18  # Anzahl deiner IT‑Fragen
     prozent = round((it_punkte / gesamt_it) * 100)
 
-    st.write(f"Du hast **{it_punkte} von {gesamt_it} Punkten** erreicht.")
-    st.write(f"Das entspricht **{prozent}%**.")
-
-    if prozent >= 85:
-        st.success("🔹 **Level: Profi** – Sehr starkes IT‑Grundwissen, du bist bestens vorbereitet.")
-    elif prozent >= 60:
-        st.info("🔹 **Level: Fortgeschritten** – Gute Basis, einzelne Themen können vertieft werden.")
-    elif prozent >= 40:
-        st.warning("🔹 **Level: Basis** – Grundkenntnisse vorhanden, aber es gibt Lücken.")
-    else:
-        st.error("🔹 **Level: Einsteiger** – Du wirst im Kurs zusätzliche Unterstützung erhalten.")
+    # Professionelle Auswertung generieren
+    level, farbe, beschreibung = get_it_level_text(prozent, it_punkte, gesamt_it)
+    
+    # Anzeige
+    st.metric(label="Erreichte Punktzahl", value=f"{it_punkte} / {gesamt_it}", delta=f"{prozent}%")
+    
+    if farbe == "success":
+        st.success(f"**Level: {level}**")
+    elif farbe == "info":
+        st.info(f"**Level: {level}**")
+    elif farbe == "warning":
+        st.warning(f"**Level: {level}**")
+    
+    st.markdown(beschreibung)
 
     st.markdown("---")
 
     # -----------------------------------------------------
-    # LERNSTIL‑AUSWERTUNG
+    # LERNSTIL‑AUSWERTUNG MIT TEXTBAUSTEINEN
     # -----------------------------------------------------
-    st.subheader("🎨 Lernstil‑Profil")
+    st.subheader("🎨 Lernstil‑Profil – Detaillierte Analyse")
 
-    # Punkte anzeigen
-    for stil, wert in lernstil_punkte.items():
-        st.write(f"- **{stil.capitalize()}**: {wert} Punkte")
-
-    # Dominanter Lernstil
+    # Dominanter und sekundärer Lernstil ermitteln
     dominant = max(lernstil_punkte, key=lernstil_punkte.get)
-
-    # Zweitstärkster Lernstil
     sorted_styles = sorted(lernstil_punkte.items(), key=lambda x: x[1], reverse=True)
     zweit = sorted_styles[1][0]
 
-    st.success(f"Dein dominanter Lernstil ist: **{dominant.capitalize()}**")
-    st.info(f"Dein sekundärer Lernstil ist: **{zweit.capitalize()}**")
-
-    # Empfehlungstexte
-    empfehlungen = {
-        "praktisch": "Du lernst am besten durch Ausprobieren, Übungen und reale Aufgaben.",
-        "analytisch": "Du profitierst von Erklärungen, Konzepten und Hintergrundwissen.",
-        "visuell": "Du merkst dir Inhalte besonders gut über Bilder, Diagramme und Videos.",
-        "sozial": "Du lernst stark im Austausch mit anderen.",
-        "strukturiert": "Du brauchst klare Ziele, Pläne und Schritt‑für‑Schritt‑Anleitungen.",
-        "flexibel": "Du lernst gut in offenen, kreativen Situationen."
-    }
-
-    st.markdown("### 📌 Empfehlung für deinen Lernstil")
-    st.write(empfehlungen[dominant])
+    # Professionelle Auswertung generieren
+    dominant_info, zweit_info, kombination_text = get_lernstil_text(dominant, zweit, lernstil_punkte)
+    
+    # Übersicht der Punkteverteilung
+    st.markdown("#### 📊 Deine Lernstil-Verteilung:")
+    col1, col2, col3 = st.columns(3)
+    
+    sorted_punkte = sorted(lernstil_punkte.items(), key=lambda x: x[1], reverse=True)
+    for idx, (stil, wert) in enumerate(sorted_punkte):
+        col = [col1, col2, col3][idx % 3]
+        with col:
+            emoji = {"praktisch": "🔧", "analytisch": "🧠", "visuell": "👁️", 
+                     "sozial": "👥", "strukturiert": "📋", "flexibel": "🎨"}[stil]
+            st.metric(label=f"{emoji} {stil.capitalize()}", value=f"{wert} Punkte")
+    
+    st.markdown("---")
+    
+    # Dominanter Lernstil - ausführlich
+    st.markdown(f"## {dominant_info['titel']}")
+    st.success(f"**Dies ist dein dominanter Lernstil!**")
+    st.markdown(dominant_info['profil'])
+    
+    with st.expander("💪 Deine Stärken", expanded=True):
+        for staerke in dominant_info['staerken']:
+            st.markdown(f"- {staerke}")
+    
+    with st.expander("📚 Optimale Lernmethoden für dich", expanded=True):
+        for methode in dominant_info['lernmethoden']:
+            st.markdown(f"- {methode}")
+    
+    with st.expander("💡 Praktische Tipps", expanded=True):
+        for tipp in dominant_info['tipps']:
+            st.markdown(f"- {tipp}")
+    
+    st.markdown("---")
+    
+    # Sekundärer Lernstil - kompakt
+    st.markdown(f"### {zweit_info['titel']}")
+    st.info(f"**Dies ist dein sekundärer Lernstil**")
+    st.markdown(f"{zweit_info['profil']}")
+    
+    with st.expander(f"Zusätzliche {zweit.capitalize()}e Methoden"):
+        st.markdown("**Ergänzende Lernmethoden:**")
+        for methode in zweit_info['lernmethoden'][:3]:
+            st.markdown(f"- {methode}")
+    
+    st.markdown("---")
+    
+    # Kombinations-Analyse
+    st.markdown(kombination_text)
 
     st.markdown("---")
 
@@ -614,22 +1005,41 @@ if st.button("📊 Gesamtauswertung anzeigen"):
     st.markdown("---")
 
     # -----------------------------------------------------
-    # ZUSAMMENFASSUNG FÜR TRAINER:INNEN
+    # ZUSAMMENFASSUNG FÜR TRAINER:INNEN (KOMPAKT)
     # -----------------------------------------------------
     st.subheader("📘 Zusammenfassung für Trainer:innen")
-
-    st.write(f"""
-    **IT‑Level:** {prozent}%  
-    **Dominanter Lernstil:** {dominant.capitalize()}  
-    **Sekundärer Lernstil:** {zweit.capitalize()}  
-
-    **Interpretation:**  
-    - Lernende mit einem *{dominant}*‑Profil profitieren besonders von:  
-      → {empfehlungen[dominant]}  
-    - Zweitstarke Ausprägung *{zweit}* unterstützt den Lernprozess zusätzlich.
+    
+    st.markdown(f"""
+    ### Teilnehmer-Profil
+    
+    **IT-Kompetenz:**
+    - **Level:** {level} ({prozent}%)
+    - **Punktzahl:** {it_punkte} von {gesamt_it}
+    
+    **Lernstil-Profil:**
+    - **Primär:** {dominant.capitalize()} ({lernstil_punkte[dominant]} Punkte)
+    - **Sekundär:** {zweit.capitalize()} ({lernstil_punkte[zweit]} Punkte)
+    
+    **Didaktische Empfehlungen:**
     """)
-
-    st.success("Die Auswertung ist abgeschlossen.")
+    
+    # Spezifische Trainer-Tipps basierend auf Lernstil
+    trainer_tipps = {
+        "praktisch": "Maximale Praxisanteile einplanen, Hands-on-Labs bevorzugen, weniger Theorie-Blöcke",
+        "analytisch": "Konzeptionelle Erklärungen vertiefen, 'Warum'-Fragen zulassen, Zusammenhänge betonen",
+        "visuell": "Diagramme und Visualisierungen nutzen, Whiteboard-Sessions, grafische Dokumentation",
+        "sozial": "Gruppenarbeiten fördern, Peer-Learning ermöglichen, Diskussionsrunden einbauen",
+        "strukturiert": "Klare Agenda kommunizieren, Schritt-für-Schritt vorgehen, Checklisten bereitstellen",
+        "flexibel": "Methodenmix anbieten, explorative Aufgaben stellen, kreative Freiräume schaffen"
+    }
+    
+    st.markdown(f"- **Für {dominant} Lernende:** {trainer_tipps[dominant]}")
+    st.markdown(f"- **Ergänzend ({zweit}):** {trainer_tipps[zweit]}")
+    
+    if prozent < 45:
+        st.warning("⚠️ **Hinweis:** Dieser TN benötigt voraussichtlich zusätzliche Unterstützung bei IT-Grundlagen.")
+    
+    st.success("✅ Auswertung abgeschlossen. Ergebnisse wurden gespeichert.")
     
     # -----------------------------------------------------
     # DATEN SPEICHERN FÜR ADMIN
@@ -663,79 +1073,182 @@ if st.button("📊 Gesamtauswertung anzeigen"):
     st.info("✅ Deine Ergebnisse wurden gespeichert!")
 
     # ---------------------------------------------------------
-    # PDF EXPORT
+    # PDF EXPORT MIT PROFESSIONELLEN TEXTBAUSTEINEN
     # ---------------------------------------------------------
     from fpdf import FPDF
 
-    def create_pdf_report(it_score, it_total, lernstil_dict, dominant, zweit, name):
+    def create_pdf_report(it_score, it_total, lernstil_dict, dominant, zweit, name, prozent_val, level_text):
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font("Arial", size=12)
-
+        
         # Titel
-        pdf.set_font("Arial", "B", 16)
-        pdf.cell(200, 10, txt="Auswertung - IT & Lernstil", ln=True, align="C")
-        pdf.ln(5)
+        pdf.set_font("Arial", "B", 18)
+        pdf.cell(0, 12, txt="Professionelle Auswertung", ln=True, align="C")
+        pdf.cell(0, 8, txt="IT-Vorwissen & Lernstil-Analyse", ln=True, align="C")
+        pdf.ln(8)
         
         # Name des Teilnehmers
         if name:
             pdf.set_font("Arial", "B", 12)
-            pdf.cell(200, 8, txt=f"Teilnehmer: {name}", ln=True)
-            pdf.ln(3)
+            pdf.cell(0, 8, txt=f"Teilnehmer:in: {name}", ln=True)
+            pdf.set_font("Arial", "", 10)
+            pdf.cell(0, 6, txt=f"Datum: {datetime.now().strftime('%d.%m.%Y')}", ln=True)
+            pdf.ln(5)
 
-        # IT-Teil
+        # IT-VORWISSEN SEKTION
         pdf.set_font("Arial", "B", 14)
-        pdf.cell(200, 10, txt="IT-Vorwissen", ln=True)
-        pdf.set_font("Arial", size=12)
-        prozent_pdf = round((it_score / it_total) * 100)
-        pdf.cell(200, 8, txt=f"Punkte: {it_score} von {it_total} ({prozent_pdf}%)", ln=True)
-
-        # Lernstil-Teil
-        pdf.ln(5)
-        pdf.set_font("Arial", "B", 14)
-        pdf.cell(200, 10, txt="Lernstil-Profil", ln=True)
-        pdf.set_font("Arial", size=12)
-
-        for stil, wert in lernstil_dict.items():
-            pdf.cell(200, 8, txt=f"{stil.capitalize()}: {wert} Punkte", ln=True)
-
+        pdf.set_fill_color(70, 130, 180)
+        pdf.set_text_color(255, 255, 255)
+        pdf.cell(0, 10, txt="IT-Vorwissen", ln=True, fill=True)
+        pdf.set_text_color(0, 0, 0)
         pdf.ln(3)
+        
         pdf.set_font("Arial", "B", 12)
-        pdf.cell(200, 8, txt=f"Dominanter Lernstil: {dominant.capitalize()}", ln=True)
-        pdf.cell(200, 8, txt=f"Sekundaerer Lernstil: {zweit.capitalize()}", ln=True)
+        pdf.cell(0, 8, txt=f"Ergebnis: {it_score} von {it_total} Punkten ({prozent_val}%)", ln=True)
+        pdf.cell(0, 8, txt=f"Level: {level_text}", ln=True)
+        pdf.ln(3)
+        
+        # IT-Level Beschreibung (gekürzt für PDF)
+        pdf.set_font("Arial", "", 10)
+        if prozent_val >= 90:
+            text = "Ausgezeichnetes IT-Grundwissen. Sehr gutes Verstaendnis von Netzwerk-infrastrukturen, Serverdiensten und IT-Sicherheit. Optimal vorbereitet fuer die Schulung."
+        elif prozent_val >= 75:
+            text = "Solides IT-Grundwissen. Gutes Verstaendnis der wichtigsten IT-Konzepte. Hervorragende Grundlage fuer die Schulung."
+        elif prozent_val >= 60:
+            text = "Ordentliches IT-Basiswissen. Grundverstaendnis wichtiger Konzepte vorhanden. Gute Ausgangsbasis fuer die Schulung."
+        elif prozent_val >= 45:
+            text = "Grundlegende IT-Kenntnisse. Erste Beruehrungspunkte mit IT-Themen vorhanden. Die Schulung wird diese Basis systematisch ausbauen."
+        elif prozent_val >= 30:
+            text = "Grundlegende Einstiegskenntnisse. Viele Konzepte sind noch neu. Die Schulung ist darauf ausgelegt, auch ohne grosse Vorkenntnisse den Einstieg zu ermoeglichen."
+        else:
+            text = "IT-Einsteiger. Die IT-Welt ist groesstenteils Neuland. Die Schulung fuehrt Schritt fuer Schritt an die Themen heran."
+        
+        pdf.multi_cell(0, 6, txt=text)
+        pdf.ln(8)
 
-        # Empfehlung
-        empfehlungen_pdf = {
-            "praktisch": "Lernt am besten durch Ausprobieren und praktische Uebungen.",
-            "analytisch": "Profitiert von Erklaerungen, Konzepten und Hintergrundwissen.",
-            "visuell": "Merkt sich Inhalte besonders gut ueber Bilder und Videos.",
-            "sozial": "Lernt stark im Austausch mit anderen.",
-            "strukturiert": "Braucht klare Ziele, Plaene und Schritt-fuer-Schritt-Anleitungen.",
-            "flexibel": "Lernt gut in offenen, kreativen Situationen."
-        }
-
-        pdf.ln(5)
+        # LERNSTIL SEKTION
         pdf.set_font("Arial", "B", 14)
-        pdf.cell(200, 10, txt="Empfehlung", ln=True)
-        pdf.set_font("Arial", size=12)
-        pdf.multi_cell(0, 8, empfehlungen_pdf[dominant])
+        pdf.set_fill_color(255, 140, 0)
+        pdf.set_text_color(255, 255, 255)
+        pdf.cell(0, 10, txt="Lernstil-Profil", ln=True, fill=True)
+        pdf.set_text_color(0, 0, 0)
+        pdf.ln(3)
 
+        # Lernstil-Punkte
+        pdf.set_font("Arial", "", 10)
+        for stil, wert in sorted(lernstil_dict.items(), key=lambda x: x[1], reverse=True):
+            marker = " (Dominant)" if stil == dominant else " (Sekundaer)" if stil == zweit else ""
+            pdf.cell(0, 6, txt=f"  {stil.capitalize()}: {wert} Punkte{marker}", ln=True)
+        
+        pdf.ln(5)
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 7, txt=f"Dominanter Lernstil: {dominant.capitalize()}", ln=True)
+        pdf.cell(0, 7, txt=f"Sekundaerer Lernstil: {zweit.capitalize()}", ln=True)
+        pdf.ln(3)
+
+        # Lernstil-Beschreibungen (kompakt für PDF)
+        lernstil_pdf_texte = {
+            "praktisch": "Praktisch-Haptischer Lerntyp: Lernt am besten durch Ausprobieren und praktische Uebungen. Learning by Doing ist das Motto. Profitiert von Hands-on-Labs, eigenen Projekten und direkter Anwendung.",
+            "analytisch": "Analytisch-Logischer Lerntyp: Versteht durch logische Analyse und moechte das 'Warum' verstehen. Profitiert von Erklaerungen, Konzepten und systematischem Hintergrundwissen.",
+            "visuell": "Visuell-Grafischer Lerntyp: Merkt sich Inhalte besonders gut ueber Bilder, Diagramme und grafische Darstellungen. Profitiert von Visualisierungen, Videos und Mind Maps.",
+            "sozial": "Sozial-Kommunikativer Lerntyp: Der Austausch mit anderen ist der Lernturbo. Lernt besonders effektiv durch Diskussionen, Gruppenarbeit und das Erklaeren an andere.",
+            "strukturiert": "Strukturiert-Systematischer Lerntyp: Klare Plaene und Schritt-fuer-Schritt-Anleitungen sind wichtig. Profitiert von Lernplaenen, Checklisten und systematischem Aufbau.",
+            "flexibel": "Flexibel-Kreativer Lerntyp: Liebt Abwechslung und lernt gut in offenen, kreativen Situationen. Profitiert von Methodenmix, freiem Experimentieren und Vielfalt."
+        }
+        
+        pdf.set_font("Arial", "", 10)
+        pdf.multi_cell(0, 6, txt=lernstil_pdf_texte[dominant])
+        pdf.ln(3)
+        
+        # Neue Seite für Empfehlungen
+        pdf.add_page()
+        
+        pdf.set_font("Arial", "B", 14)
+        pdf.set_fill_color(60, 179, 113)
+        pdf.set_text_color(255, 255, 255)
+        pdf.cell(0, 10, txt="Empfehlungen & Lernstrategien", ln=True, fill=True)
+        pdf.set_text_color(0, 0, 0)
+        pdf.ln(5)
+        
+        # Lernmethoden-Empfehlungen
+        lernmethoden_empfehlungen = {
+            "praktisch": [
+                "Nutze jede Gelegenheit fuer praktische Uebungen und Hands-on-Labs",
+                "Richte dir eine Testumgebung ein zum gefahrlosen Experimentieren",
+                "Setze Gelerntes sofort in eigenen kleinen Projekten um",
+                "Dokumentiere praktische Erfahrungen als Lerntagebuch"
+            ],
+            "analytisch": [
+                "Vertiefe dich in theoretische Grundlagen und Konzepte",
+                "Erstelle Mind Maps und Strukturdiagramme",
+                "Schreibe ausfuehrliche, strukturierte Mitschriften",
+                "Fordere Erklaerungen fuer das 'Warum' hinter Konzepten"
+            ],
+            "visuell": [
+                "Zeichne Netzwerkstrukturen und IT-Architekturen selbst auf",
+                "Nutze Video-Tutorials als Hauptlernquelle",
+                "Arbeite mit Farbcodierung und visuellen Strukturen",
+                "Erstelle eigene Infografiken zu komplexen Themen"
+            ],
+            "sozial": [
+                "Gruende oder tritt einer Lerngruppe bei",
+                "Erklaere anderen, was du gelernt hast (Peer-Teaching)",
+                "Nutze Discord, Slack oder Teams fuer kontinuierlichen Austausch",
+                "Suche aktiv das Gespraech mit Trainern und erfahrenen IT-lern"
+            ],
+            "strukturiert": [
+                "Erstelle einen detaillierten Schulungs- und Lernplan",
+                "Nutze Tools wie Notion oder Trello zur Organisation",
+                "Arbeite Kapitel fuer Kapitel systematisch durch",
+                "Definiere klare Meilensteine und Erfolgskriterien"
+            ],
+            "flexibel": [
+                "Variiere deine Lernmethoden regelmaessig",
+                "Setze flexible Lernziele mit Raum fuer Kreativitaet",
+                "Nutze verschiedene Plattformen und Ressourcen parallel",
+                "Erlaube dir, auch mal 'Umwege' zu gehen"
+            ]
+        }
+        
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 7, txt=f"Optimale Lernmethoden fuer {dominant} Lernende:", ln=True)
+        pdf.set_font("Arial", "", 10)
+        for methode in lernmethoden_empfehlungen[dominant]:
+            pdf.multi_cell(0, 6, txt=f"  - {methode}")
+        
+        pdf.ln(5)
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 7, txt=f"Ergaenzende {zweit} Methoden:", ln=True)
+        pdf.set_font("Arial", "", 10)
+        for methode in lernmethoden_empfehlungen[zweit][:2]:
+            pdf.multi_cell(0, 6, txt=f"  - {methode}")
+        
+        pdf.ln(8)
+        
+        # Fazit
+        pdf.set_font("Arial", "B", 12)
+        pdf.cell(0, 8, txt="Fazit", ln=True)
+        pdf.set_font("Arial", "", 10)
+        pdf.multi_cell(0, 6, txt=f"Diese Auswertung zeigt dein individuelles IT-Niveau und deinen persoenlichen Lernstil. Nutze die Empfehlungen, um deinen Lernprozess optimal zu gestalten. Deine Kombination aus {dominant}em und {zweit}em Lernen macht dich vielseitig - nutze beide Stile aktiv!")
+        
         return bytes(pdf.output(dest="S"))
 
     # PDF-Download Button
     st.markdown("---")
     pdf_bytes = create_pdf_report(
         it_score=it_punkte,
-        it_total=18,
+        it_total=gesamt_it,
         lernstil_dict=lernstil_punkte,
         dominant=dominant,
         zweit=zweit,
-        name=teilnehmer_name
+        name=teilnehmer_name,
+        prozent_val=prozent,
+        level_text=level
     )
 
     st.download_button(
-        label="📄 PDF herunterladen",
+        label="📄 Professionelle Auswertung als PDF herunterladen",
         data=pdf_bytes,
-        file_name="Auswertung_IT_Lernstil.pdf",
+        file_name=f"IT_Lernstil_Auswertung_{teilnehmer_name if teilnehmer_name else 'Teilnehmer'}_{datetime.now().strftime('%Y%m%d')}.pdf",
         mime="application/pdf"
     )
