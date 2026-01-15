@@ -1080,6 +1080,9 @@ if st.button("📊 Gesamtauswertung anzeigen"):
     def create_pdf_report(it_score, it_total, lernstil_dict, dominant, zweit, name, prozent_val, level_text):
         pdf = FPDF()
         pdf.add_page()
+        pdf.set_left_margin(15)
+        pdf.set_right_margin(15)
+        pdf.set_auto_page_break(auto=True, margin=15)
         
         # Titel
         pdf.set_font("Arial", "B", 18)
@@ -1162,6 +1165,8 @@ if st.button("📊 Gesamtauswertung anzeigen"):
         
         # Neue Seite für Empfehlungen
         pdf.add_page()
+        pdf.set_left_margin(15)
+        pdf.set_right_margin(15)
         
         pdf.set_font("Arial", "B", 14)
         pdf.set_fill_color(60, 179, 113)
@@ -1197,31 +1202,46 @@ if st.button("📊 Gesamtauswertung anzeigen"):
                 "Suche aktiv das Gespraech mit Trainern und erfahrenen IT-lern"
             ],
             "strukturiert": [
-                "Erstelle einen detaillierten Schulungs- und Lernplan",
-                "Nutze Tools wie Notion oder Trello zur Organisation",
-                "Arbeite Kapitel fuer Kapitel systematisch durch",
-                "Definiere klare Meilensteine und Erfolgskriterien"
+                "Erstelle einen detaillierten Lernplan",
+                "Nutze Tools wie Notion zur Organisation",
+                "Arbeite systematisch durch die Kapitel",
+                "Definiere klare Meilensteine"
             ],
             "flexibel": [
                 "Variiere deine Lernmethoden regelmaessig",
-                "Setze flexible Lernziele mit Raum fuer Kreativitaet",
-                "Nutze verschiedene Plattformen und Ressourcen parallel",
-                "Erlaube dir, auch mal 'Umwege' zu gehen"
+                "Setze flexible Lernziele",
+                "Nutze verschiedene Plattformen parallel",
+                "Erlaube dir kreative Umwege"
             ]
         }
         
         pdf.set_font("Arial", "B", 11)
         pdf.cell(0, 7, txt=f"Optimale Lernmethoden fuer {dominant} Lernende:", ln=True)
         pdf.set_font("Arial", "", 10)
+        
+        # Effektive Breite berechnen
+        effective_width = pdf.w - pdf.l_margin - pdf.r_margin
+        
         for methode in lernmethoden_empfehlungen[dominant]:
-            pdf.multi_cell(0, 6, txt=f"  - {methode}")
+            if pdf.get_y() > 250:
+                pdf.add_page()
+                pdf.set_left_margin(15)
+                pdf.set_right_margin(15)
+            pdf.set_x(pdf.l_margin + 5)
+            pdf.multi_cell(effective_width - 5, 6, txt=f"- {methode}")
         
         pdf.ln(5)
         pdf.set_font("Arial", "B", 11)
         pdf.cell(0, 7, txt=f"Ergaenzende {zweit} Methoden:", ln=True)
         pdf.set_font("Arial", "", 10)
+        
         for methode in lernmethoden_empfehlungen[zweit][:2]:
-            pdf.multi_cell(0, 6, txt=f"  - {methode}")
+            if pdf.get_y() > 250:
+                pdf.add_page()
+                pdf.set_left_margin(15)
+                pdf.set_right_margin(15)
+            pdf.set_x(pdf.l_margin + 5)
+            pdf.multi_cell(effective_width - 5, 6, txt=f"- {methode}")
         
         pdf.ln(8)
         
